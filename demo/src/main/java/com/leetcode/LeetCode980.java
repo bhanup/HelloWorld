@@ -16,11 +16,11 @@ public class LeetCode980 {
                 }
             }
         }
-        return backTrackPath(grid, row, col, zeroCount, 0, "");
+        return backTrackPath(grid, row, col, zeroCount, 0);
     }
 
     // Change the grid to mark it visited
-    private int backTrackPath(int[][] grid, int i, int j, int zeroCount, int nodeCount, String curr) {
+    private int backTrackPath(int[][] grid, int i, int j, int zeroCount, int nodeCount) {
         if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == -1 || grid[i][j] == 3) {
             return 0;
         }
@@ -31,11 +31,10 @@ public class LeetCode980 {
             nodeCount++;
         }
         grid[i][j] = 3;
-        curr += String.format("(%d, %d)", i, j);
-        int count = backTrackPath(grid, i+1, j, zeroCount, nodeCount, curr);
-        count += backTrackPath(grid, i, j+1, zeroCount, nodeCount, curr);
-        count += backTrackPath(grid, i-1, j, zeroCount, nodeCount, curr);
-        count += backTrackPath(grid, i, j-1, zeroCount, nodeCount, curr);
+        int count = backTrackPath(grid, i+1, j, zeroCount, nodeCount);
+        count += backTrackPath(grid, i, j+1, zeroCount, nodeCount);
+        count += backTrackPath(grid, i-1, j, zeroCount, nodeCount);
+        count += backTrackPath(grid, i, j-1, zeroCount, nodeCount);
         grid[i][j] = 0;
         return count;
     }
