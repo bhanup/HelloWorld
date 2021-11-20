@@ -7,7 +7,13 @@ package com.leetcode;
  * Your solution must run in O(log n) time and O(1) space.
  * 
  * The array being sorted and run time complexity requirement of o(log n) mandates that
- * binary search has to be used.
+ * binary search has to be used. Otherwise it would have been a simple XOR of elements
+ * for non-sorted elements.
+ * In this case we need to handle the mid element differently in case it is even index
+ * vs odd index. In one case the duplicate element could be on the right while in the
+ * other case it should be in the left. If the mid element is still has valid, the first
+ * half is good and we can move the start pointer to after mid elements. If not, then
+ * second half is good and end needs to be moved either to mid or before mid.
  */
 public class LeetCode540 {
     public int singleNonDuplicate(int[] nums) {
