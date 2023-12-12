@@ -3,7 +3,7 @@ package com.leetcode;
 import java.util.HashSet;
 import java.util.Set;
 
-public class LeetCode200 {
+public class LeetCode200M {
 
     private Set<Integer> seenElements;
     private int row;
