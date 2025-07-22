@@ -21,12 +21,12 @@ class TimeMap {
     public TimeMap() {
         data = new HashMap<>();
     }
-    
+
     public void set(String key, String value, int timestamp) {
-        ArrayList<Pair> listForKey = data.getOrDefault(key, new ArrayList<Pair>());
+        ArrayList<Pair> listForKey = data.getOrDefault(key, new ArrayList<>());
         listForKey.add(new Pair(value, timestamp));
     }
-    
+
     public String get(String key, int timestamp) {
         if (!data.containsKey(key)) {
             return "";
